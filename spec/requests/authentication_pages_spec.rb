@@ -48,6 +48,19 @@ describe "Authentication" do
 			it { should_not have_link('Settings',    href: edit_user_path(user)) }
 			it { should_not have_link('Sign out',    href: signout_path) }
 
+			describe "in the Relationships controller" do
+				describe "submitting the create action" do
+					before { post relationships_path }
+					specify { expect(response).to redirect_to(signin_path) }
+				end
+
+				describe "submitting the destroy action" do
+					before { delete relationship_path(1) }
+					specify { expect(response).to redirect_to(signin_path) }
+				end
+			end
+
+
 			describe "in the Microposts controller" do
 
 				describe "submitting to the create action" do
@@ -104,6 +117,16 @@ describe "Authentication" do
 
 				describe "visiting the user index" do
 					before { visit users_path }
+					it { should have_title('Sign in') }
+				end
+
+				describe "visiting the following page" do
+					before { visit following_user_path(user) }
+					it { should have_title('Sign in') }
+				end
+
+				describe "visiting the followers page" do
+					before { visit followers_user_path(user) }
 					it { should have_title('Sign in') }
 				end
 			end
