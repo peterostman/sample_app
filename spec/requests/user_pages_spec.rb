@@ -4,6 +4,10 @@ describe "User pages" do
 
 	subject { page }
 
+    describe "search" do
+        it { should have_link('Search')}
+    end
+
     describe "index" do
         let(:user) { FactoryGirl.create(:user) }
         
