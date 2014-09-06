@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>ChartKick</title>
+  
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+  <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+  
+  <%= csrf_meta_tags %>
+</head>
+<div class="row">
+
+  <!-- Line Chart - Single Series -->
+  <div class="col-xs-6">
+    <h3>Posts By Day</h3>
+    <%= line_chart Micropost.where(:user_id => current_user.id).group_by_day(:created_at).count %>
+  </div>
+
+</div>
+</html>
