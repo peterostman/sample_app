@@ -3,8 +3,10 @@
   <title>ChartKick</title>	      
 	<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 </head>
+	<div class="container-fluid">
 
     <h1>Posts by Time</h1>
     <%= line_chart Micropost.where(:user_id => current_user.id).group(:created_at).count %>
 
+	</div>
 </html>
