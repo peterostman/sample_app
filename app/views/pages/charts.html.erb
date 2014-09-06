@@ -14,8 +14,8 @@
 
   <!-- Line Chart - Single Series -->
   <div class="col-xs-6">
-    <h3>Posts By Day</h3>
-    <%= line_chart Micropost.where(:user_id => current_user.id).group_by_day(:created_at).count %>
+    <h3>Posts By Time</h3>
+    <%= line_chart Micropost.where(:user_id => current_user.id).group(:created_at).count %>
   </div>
 
 </div>
