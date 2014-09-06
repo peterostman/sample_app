@@ -225,7 +225,8 @@ input {
   margin: 10px 0 0 0;
 
   li { 
-    padding: 10px, 0;
+    padding-top: 10px;
+    padding-bottom: 5px;
     border-top: 1px solid #e8e8e8;
   }
 }
@@ -234,6 +235,7 @@ input {
 }
 .timestamp { 
   color: $grayLight;
+  font-size: 0.8em;
 }
 .gravatar {
   float: left;
